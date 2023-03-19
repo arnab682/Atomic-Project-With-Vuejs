@@ -1,0 +1,49 @@
+<template>
+  <div id="app">
+    {{ address }} <br>
+    Child to Parent: {{ smss }}
+   <HI />
+   <h1>Child to Parent: {{ title }}</h1>
+
+  <Hello @smsM="sms2" @changeTitle="ChangeT($event)" :message="message"/>
+   <!-- <Hello  :message="message"/> -->
+
+    <!-- <Hello :message="message"></Hello> -->
+    <!-- router-view -->
+  </div>
+</template>
+
+<script>
+import HI from './components/Hi'
+import Hello from './components/HelloWorld'
+export default {
+  components: {
+    HI, Hello
+  },
+  data() {
+    return {
+      message: `Hey`,
+      address: `arnab.me`,
+      color: 'color',
+      smss: [],
+      title:'Rick Grimes'
+    }
+  },
+  methods: {
+    ChangeT(title)
+    {
+      this.title=title;
+      //console.log(title)
+    },
+    sms2(sms){
+      this.smss = sms
+      //onsole.log(smss)
+    }
+  },
+
+}
+</script>
+
+<style>
+
+</style>

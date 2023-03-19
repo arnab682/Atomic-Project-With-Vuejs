@@ -1,0 +1,21 @@
+Project Create
+Vue Cli
+
+vue init webpack supershop
+cd supershop
+npm run dev
+npm install bootstrap@4.0.0-beta popper.js jquery --save-dev
+npm install bootstrap@4.0.0-beta popper.js jquery
+npm install vuex@3.4.0 --save
+
+API Create
+npm init
+npm install express cors --save
+npm run dev
+node index.js
+
+Axios
+npm install axios
+npm install vuex@next --save
+sudo npm install vuex@next --save
+sudo npm install vuex@next --save --force
