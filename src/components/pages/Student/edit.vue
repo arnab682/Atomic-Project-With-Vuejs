@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
         <h4 class="card-title text-center">
-        Student Create 
+        Student Edit 
         <div class="float-right">
             <router-link :to="{ path: '/Student' }" class="btn btn-success easyAccess mr-2 float-right">
                 <i class="mdi mdi-playlist-plus">Back</i>
@@ -24,7 +24,7 @@
                     <small id="" class="form-text text-muted">Give Student ID. </small>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>

@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
         <h4 class="card-title text-center">
-            Post Create 
+            Post Edit 
         <div class="float-right">
             <router-link :to="{ path: '/Post' }" class="btn btn-success easyAccess mr-2 float-right">
                 <i class="mdi mdi-playlist-plus">Back</i>

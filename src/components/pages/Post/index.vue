@@ -2,9 +2,9 @@
     <div class="card">
         <div class="card-header">
         <h4 class="card-title text-center">
-        Department List 
+        Post List 
         <div class="float-right">
-            <router-link :to="{ path: '/Department/Create' }" class="btn btn-success easyAccess mr-2 float-right">
+            <router-link :to="{ path: '/Post/Create' }" class="btn btn-success easyAccess mr-2 float-right" href="">
             <i class="mdi mdi-playlist-plus">Create</i>
             </router-link>
         </div></h4>
@@ -16,19 +16,22 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Department Name</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Create At</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
-            <tbody>
-                <tr v-for="(department, index) in departments">
+            <tbody>      
+                <tr v-for="(post, index) in posts">
                     <td scope="row">{{ index+1 }}</td>
-                    <td>{{ department.department_name }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.body }}</td>
                     <td>
-                        <router-link :to="{ path: /Department/+ department.id+/Edit/ }">Edit</router-link> ||
+                        <router-link :to="{ path: /post/+ post.id+/Edit/ }">Edit</router-link> ||
                     <a href="#">Delete</a>
                     </td>
-                </tr>
+                </tr>    
             </tbody>
         </table>
         </div>
@@ -43,7 +46,7 @@ export default {
     data() {
         return {
             loading: true,
-            departments: []
+            posts: []
         }
     },
     
@@ -54,10 +57,10 @@ export default {
         
         fetchDepartment() {
             var self = this
-            axios.get('http://localhost:3000/departments').then(response => {
+            axios.get('http://localhost:3000/Posts').then(response => {
                 //console.log(response)
                 setTimeout(function() {
-                    self.departments = response.data
+                    self.posts = response.data
                     self.loading = false
                 }, 1000)
                 

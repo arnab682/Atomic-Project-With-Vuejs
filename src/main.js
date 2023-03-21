@@ -9,6 +9,10 @@ Vue.config.productionTip = false
 window.jQuery = window.$ = require('jquery')
 // import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

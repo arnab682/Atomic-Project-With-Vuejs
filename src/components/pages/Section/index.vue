@@ -2,9 +2,9 @@
     <div class="card">
         <div class="card-header">
         <h4 class="card-title text-center">
-        Department List 
+        Section List 
         <div class="float-right">
-            <router-link :to="{ path: '/Department/Create' }" class="btn btn-success easyAccess mr-2 float-right">
+            <router-link :to="{ path: '/Section/Create' }" class="btn btn-success easyAccess mr-2 float-right" href="">
             <i class="mdi mdi-playlist-plus">Create</i>
             </router-link>
         </div></h4>
@@ -16,19 +16,23 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Department Name</th>
+                <th>Class Name</th>
+                <th>Section</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-                <tr v-for="(department, index) in departments">
+            
+                <tr v-for="(section, index) in sections">
                     <td scope="row">{{ index+1 }}</td>
-                    <td>{{ department.department_name }}</td>
+                    <td>{{ section.class_name }}</td>
+                    <td>{{ section.section }}</td>
                     <td>
-                        <router-link :to="{ path: /Department/+ department.id+/Edit/ }">Edit</router-link> ||
+                        <router-link :to="{ path: /Section/+ section.id+/Edit/ }">Edit</router-link> ||
                     <a href="#">Delete</a>
                     </td>
                 </tr>
+            
             </tbody>
         </table>
         </div>
@@ -43,7 +47,7 @@ export default {
     data() {
         return {
             loading: true,
-            departments: []
+            sections: []
         }
     },
     
@@ -54,10 +58,10 @@ export default {
         
         fetchDepartment() {
             var self = this
-            axios.get('http://localhost:3000/departments').then(response => {
+            axios.get('http://localhost:3000/Sections').then(response => {
                 //console.log(response)
                 setTimeout(function() {
-                    self.departments = response.data
+                    self.sections = response.data
                     self.loading = false
                 }, 1000)
                 

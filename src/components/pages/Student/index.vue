@@ -2,9 +2,9 @@
     <div class="card">
         <div class="card-header">
         <h4 class="card-title text-center">
-        Department List 
+            Student List 
         <div class="float-right">
-            <router-link :to="{ path: '/Department/Create' }" class="btn btn-success easyAccess mr-2 float-right">
+            <router-link :to="{ path: '/Student/Create' }" class="btn btn-success easyAccess mr-2 float-right">
             <i class="mdi mdi-playlist-plus">Create</i>
             </router-link>
         </div></h4>
@@ -16,19 +16,23 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Department Name</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">ID</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-                <tr v-for="(department, index) in departments">
+            
+                <tr v-for="(student, index) in students">
                     <td scope="row">{{ index+1 }}</td>
-                    <td>{{ department.department_name }}</td>
+                    <td>{{ student.student_name }}</td>
+                    <td>{{ student.student_id }}</td>
                     <td>
-                        <router-link :to="{ path: /Department/+ department.id+/Edit/ }">Edit</router-link> ||
+                        <router-link :to="{ path: /Student/+ student.id+/Edit/ }">Edit</router-link> ||
                     <a href="#">Delete</a>
                     </td>
                 </tr>
+            
             </tbody>
         </table>
         </div>
@@ -43,7 +47,7 @@ export default {
     data() {
         return {
             loading: true,
-            departments: []
+            students: []
         }
     },
     
@@ -54,10 +58,10 @@ export default {
         
         fetchDepartment() {
             var self = this
-            axios.get('http://localhost:3000/departments').then(response => {
+            axios.get('http://localhost:3000/Students').then(response => {
                 //console.log(response)
                 setTimeout(function() {
-                    self.departments = response.data
+                    self.students = response.data
                     self.loading = false
                 }, 1000)
                 

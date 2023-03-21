@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
         <h4 class="card-title text-center">
-            Subject Create 
+            Subject Edit 
         <div class="float-right">
             <router-link :to="{ path: '/Subject' }" class="btn btn-success easyAccess mr-2 float-right">
                 <i class="mdi mdi-playlist-plus">Back</i>
@@ -19,7 +19,7 @@
                     <small id="" class="form-text text-muted">Give Subject Name. </small>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>

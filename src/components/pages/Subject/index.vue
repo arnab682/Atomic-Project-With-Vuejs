@@ -2,9 +2,9 @@
     <div class="card">
         <div class="card-header">
         <h4 class="card-title text-center">
-        Department List 
+        Subject List 
         <div class="float-right">
-            <router-link :to="{ path: '/Department/Create' }" class="btn btn-success easyAccess mr-2 float-right">
+            <router-link :to="{ path: '/Subject/create' }" class="btn btn-success easyAccess mr-2 float-right" href="">
             <i class="mdi mdi-playlist-plus">Create</i>
             </router-link>
         </div></h4>
@@ -16,25 +16,26 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Department Name</th>
+                <th scope="col">Subject Name</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-                <tr v-for="(department, index) in departments">
+            
+                <tr v-for="(subject, index) in subjects">
                     <td scope="row">{{ index+1 }}</td>
-                    <td>{{ department.department_name }}</td>
+                    <td>{{ subject.subject_name }}</td>
                     <td>
-                        <router-link :to="{ path: /Department/+ department.id+/Edit/ }">Edit</router-link> ||
+                        <router-link :to="{ path: /Subject/+ subject.id+/Edit/ }">Edit</router-link> ||
                     <a href="#">Delete</a>
                     </td>
                 </tr>
+            
             </tbody>
         </table>
         </div>
     </div>
 </template>
-
 
 <script>
 import axios from 'axios'
@@ -43,21 +44,21 @@ export default {
     data() {
         return {
             loading: true,
-            departments: []
+            subjects: []
         }
     },
     
     mounted() {
-        this.fetchDepartment()
+        this.fetchSubject()
     },
     methods: {
         
-        fetchDepartment() {
+        fetchSubject() {
             var self = this
-            axios.get('http://localhost:3000/departments').then(response => {
+            axios.get('http://localhost:3000/Subjects').then(response => {
                 //console.log(response)
                 setTimeout(function() {
-                    self.departments = response.data
+                    self.subjects = response.data
                     self.loading = false
                 }, 1000)
                 
